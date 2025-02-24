@@ -1,0 +1,140 @@
+/* QueueVisualizer.css */
+.queue-visualizer-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .queue-display {
+    display: flex;
+    gap: 10px;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  
+  .queue-item {
+    padding: 1rem;
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+    min-width: 80px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .queue-item::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    color: #2c3e50;
+  }
+  
+  .queue-item:last-child::after {
+    content: '';
+  }
+  
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input-group input {
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+  }
+  
+  .operation-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .operation-buttons button {
+    background: #2ecc71;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .status-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f1c40f;
+    border-radius: 4px;
+    color: #2c3e50;
+  }
+
+  /* Add to QueueVisualizer.css */
+.stack-display {
+    display: flex;
+    gap: 10px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stack-element {
+    padding: 1rem;
+    background: #e9ecef;
+    color: #212529;
+    border-radius: 4px;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+  }
+  .stack-element.removing {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
+  
+  .empty-slot {
+    color: #adb5bd;
+    font-style: italic;
+  }
+  
+  .visualizer-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* QueueVisualizer.css */
+.deque-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .deque-controls button {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .queue-item.deque-front {
+    border: 2px solid #2ecc71;
+  }
+  
+  .queue-item.deque-rear {
+    border: 2px solid #e74c3c;
+  }

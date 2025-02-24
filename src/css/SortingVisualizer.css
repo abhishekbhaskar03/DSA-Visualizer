@@ -1,0 +1,148 @@
+/* SortingVisualizer.css */
+.sorting-visualizer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced gap for better space utilization */
+  padding: 20px; /* Reduced padding */
+  max-width: 1500px;
+  margin: 0 auto;
+  background: #1a1a2e;
+  min-height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding in height calculation */
+  
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0; /* Add some padding */
+}
+
+.controls button {
+  padding: 10px 20px; /* Slightly smaller buttons */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #6c5ce7, #a363d9);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.controls button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.controls button:disabled {
+  background: #2d2d44;
+  color: #6b6b8b;
+  cursor: not-allowed;
+}
+
+.visualization-container {
+  display: flex;
+  gap: 20px; /* Reduced gap */
+  flex: 1; /* Take remaining space */
+  min-height: 0; /* Allow flex children to shrink */
+  overflow: auto;
+}
+
+.array-container {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  align-items: flex-end;
+  flex: 2;
+  background: #f5f7fa;
+  padding: 20px; /* Reduced padding */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden; /* Prevent overflow */
+}
+
+.array-bar {
+  width: 45px;
+  margin: 0 2px;
+  background-color: lightgreen;
+  transition: height 0.3s ease;
+  position: relative;
+  border-radius: 4px;
+}
+
+.array-bar:hover {
+  background-color: lightblue;
+  transform: scale(1.02);
+}
+
+.array-bar-value {
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.complexity-panel {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling inside if content overflows */
+}
+
+.complexity-section {
+  margin-bottom: 15px; /* Reduced margin */
+  padding: 15px; /* Reduced padding */
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.complexity-section h4 {
+  margin: 0 0 10px 0; /* Reduced margin */
+  color: #a363d9;
+  font-size: 1.1rem;
+}
+
+.stats-section {
+  margin-top: 15px; /* Reduced margin */
+  padding: 15px; /* Reduced padding */
+  background: rgba(108, 92, 231, 0.15);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.stats-section p {
+  margin: 8px 0; /* Reduced margin */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-section p span:first-child {
+  color: #a363d9;
+  font-weight: 500;
+}
+
+/* Animated background effect */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  margin: 0; /* Remove default body margin */
+  
+}

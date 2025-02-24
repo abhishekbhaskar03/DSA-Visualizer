@@ -1,0 +1,204 @@
+.linked-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.generate-button-container {
+  margin-bottom: 20px;
+}
+
+.generate-button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-button-container button:hover {
+  background-color: #45a049;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.control-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-group input {
+  padding: 8px;
+  width: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.control-group button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control-group button:hover {
+  background-color: #0056b3;
+}
+
+.linked-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.linked-list-node-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.linked-list-node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.node-value {
+  color: black;
+}
+
+.arrow {
+  font-size: 24px;
+  margin: 0 10px;
+  color: white;
+}
+
+.new-node {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Stack Css */
+.stack-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.generate-button-container {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Stack-specific styles */
+.search-feedback {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Ensure stack nodes match linked list nodes */
+.linked-list-node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.node-value {
+  color: black;
+}
+
+/* Align controls */
+.controls-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.control-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-group input {
+  padding: 8px;
+  width: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.control-group button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control-group button:hover {
+  background-color: #0056b3;
+}
+
+.control-group button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
