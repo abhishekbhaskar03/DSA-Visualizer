@@ -8,8 +8,7 @@
   margin: 0 auto;
   background: #1a1a2e;
   min-height: 100vh; /* Full viewport height */
-  box-sizing: border-box; /* Include padding in height calculation */
-  
+  box-sizing: border-box; /* Include padding in height calculation */  
 }
 
 .controls {
@@ -94,35 +93,37 @@
   border-radius: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
-  padding: 20px;
+  padding: 18px;
   overflow-y: auto; /* Allow scrolling inside if content overflows */
 }
 
 .complexity-section {
   margin-bottom: 15px; /* Reduced margin */
-  padding: 15px; /* Reduced padding */
-  background: rgba(0, 0, 0, 0.3);
+  padding: 10px; /* Reduced padding */
   border-radius: 12px;
-  color: #fff;
+  background: rgba(95, 59, 162, 0.15);
+  color: #94459e;
+  
 }
 
 .complexity-section h4 {
-  margin: 0 0 10px 0; /* Reduced margin */
-  color: #a363d9;
+  margin: 0 0 0px 0; /* Reduced margin */
+  color: #3e26d6;
   font-size: 1.1rem;
 }
 
 .stats-section {
-  margin-top: 15px; /* Reduced margin */
-  padding: 15px; /* Reduced padding */
-  background: rgba(108, 92, 231, 0.15);
+  margin-top: 10px; /* Reduced margin */
+  padding: 10px; /* Reduced padding */
+  background: rgba(95, 59, 162, 0.15);
+  color: #3e26d6;
   border-radius: 12px;
-  color: #fff;
 }
 
 .stats-section p {
   margin: 8px 0; /* Reduced margin */
   display: flex;
+  color: #94459e;
   justify-content: space-between;
   align-items: center;
 }
@@ -144,5 +145,4 @@ body {
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   margin: 0; /* Remove default body margin */
-  
 }

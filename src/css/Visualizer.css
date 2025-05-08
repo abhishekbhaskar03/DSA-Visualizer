@@ -7,6 +7,7 @@
 
 .navbar {
   display: flex;
+  position: sticky;
   justify-content: space-between; /* Distribute space between items */
   align-items: center;
   padding: 10px 20px; /* Increased horizontal padding */
@@ -86,69 +87,84 @@
   transform: translateX(5px);
 }
 
+/* Keep white background for all pages except home */
 .main-content {
-  padding: 2rem;
-  background: #ecf0f1;
-  overflow-y: auto; /* Allow scrolling if content overflows */
+  background: #fff; /* Default white background */
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Only make background transparent for home view */
+.main-content.home-page {
+  background: transparent;
+  padding: 0;
 }
 
 .hero-section {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Video background styling */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
+  position: relative;
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  margin-top: -60px; /* Pull up behind navbar */
+  padding-top: 60px;
 }
 
-.background-video {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-}
-
-.video-overlay {
+.video-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  z-index: 0;
+}
+
+.video-background {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  text-align: center;
+  color: white;
   max-width: 800px;
-  margin: 0 auto;
+  padding: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow */
+  border-radius: 8px;
 }
 
-/* Adjust navbar z-index */
-.navbar {
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Enhanced title shadow */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 70px auto;
+  max-width: 600px;
+}
+/* Ensure other content stays above video */
+.navbar,
+.sidebar {
   position: relative;
   z-index: 2;
-}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+} 
  
  

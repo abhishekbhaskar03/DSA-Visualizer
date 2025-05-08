@@ -11,7 +11,7 @@ const QueueVisualizer = () => {
 
   // Initialize queue based on selected type
   const initializeQueue = () => {
-    switch(queueType) {
+    switch (queueType) {
       case 'Simple Queue (Linear Queue)': return new LinearQueue(8);
       case 'Circular Queue': return new CircularQueue(8);
       case 'Double-Ended Queue (Deque)': return new Deque(8);
@@ -23,8 +23,8 @@ const QueueVisualizer = () => {
   // Generate random queue
   const handleGenerateRandom = () => {
     const newQueue = initializeQueue();
-    const randomValues = Array.from({length: 5}, () => Math.floor(Math.random() * 100) + 1);
-    
+    const randomValues = Array.from({ length: 5 }, () => Math.floor(Math.random() * 100) + 1);
+
     try {
       if (queueType === 'Double-Ended Queue (Deque)') {
         // For Deque, fill sequentially from front
@@ -48,7 +48,7 @@ const QueueVisualizer = () => {
   // Handle enqueue operation
   const handleEnqueue = () => {
     if (!inputValue) return;
-    
+
     try {
       const newQueue = queue.clone();
       if (queueType === 'Priority Queue') {
@@ -69,13 +69,13 @@ const QueueVisualizer = () => {
     try {
       const newQueue = queue.clone();
       newQueue.dequeue();
-      
+
       // Animate removal
       const elements = queue.getElements();
       if (elements.length > 0) {
         const tempElement = document.querySelector(`.stack-element:nth-child(${elements.length})`);
         tempElement?.classList.add('removing');
-        
+
         setTimeout(() => {
           setQueue(newQueue);
         }, 300);
@@ -120,15 +120,23 @@ const QueueVisualizer = () => {
     }
   };
 
-  // Render JSX
   return (
-    <div className="visualizer-container">
-      <h2>Queue Visualizer</h2>
-      
-      <div className="controls">
-        <select 
+    <div className="queue-main-container" >
+      <h1>Queue Visualizer</h1>
+
+      {/* Generate Random Queue */}
+      <div className="queue-control-group">
+        <button
+          onClick={handleGenerateRandom}
+          className="queue-generate-btn"
+          disabled={!queueType}
+        >
+          Generate Random Queue
+        </button>
+        <select
           value={queueType}
           onChange={(e) => setQueueType(e.target.value)}
+          className="queue-type-select"
         >
           <option value="">Select Queue Type</option>
           <option value="Simple Queue (Linear Queue)">Simple Queue</option>
@@ -136,71 +144,74 @@ const QueueVisualizer = () => {
           <option value="Double-Ended Queue (Deque)">Deque</option>
           <option value="Priority Queue">Priority Queue</option>
         </select>
+      </div>
 
-        <button 
-          onClick={handleGenerateRandom}
-          disabled={!queueType}
+      {/* Input Section */}
+      <div className="queue-input-group">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter value"
+          className="queue-input"
+        />
+        {queueType === 'Priority Queue' && (
+          <input
+            type="number"
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+            placeholder="Priority"
+            className="queue-input"
+          />
+        )}
+        <button
+          onClick={handleEnqueue}
+          className="queue-action-btn"
+          disabled={!inputValue}
         >
-          Generate Random Queue
+          Enqueue
         </button>
       </div>
 
-      {queue && (
-        <div className="queue-operations">
-          <div className="input-group">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Enter value"
-            />
-            
-            {queueType === 'Priority Queue' && (
-              <input
-                type="number"
-                value={priority}
-                onChange={(e) => setPriority(e.target.value)}
-                placeholder="Priority"
-              />
-            )}
-
-            <button onClick={handleEnqueue} disabled={!inputValue}>
-              Enqueue
+      {/* Operation Buttons */}
+      <div className="queue-op-buttons">
+        {queueType === 'Double-Ended Queue (Deque)' ? (
+          <>
+            <button className="queue-action-btn" onClick={handleDequeFront}>
+              Remove Front
             </button>
-          </div>
-
-          <div className="operation-buttons">
-            {queueType === 'Double-Ended Queue (Deque)' ? (
-              <>
-                <button onClick={handleDequeFront}>Remove Front</button>
-                <button onClick={handleDequeRear}>Remove Rear</button>
-              </>
-            ) : (
-              <button onClick={handleDequeue}>Dequeue</button>
-            )}
-            
-            <button onClick={handlePeek}> Peek </button>
-            <button onClick={() => alert(`Empty: ${queue.isEmpty()}`)}>
-              isEmpty
+            <button className="queue-action-btn" onClick={handleDequeRear}>
+              Remove Rear
             </button>
-            {queueType !== 'Priority Queue' && (
-              <button onClick={() => alert(`Full: ${queue.isFull()}`)}>
-                isFull
-              </button>
-            )}
-          </div>
-        </div>
-      )}
+          </>
+        ) : (
+          <button className="queue-action-btn" onClick={handleDequeue}>
+            Dequeue
+          </button>
+        )}
+        <button className="queue-status-btn" onClick={handlePeek}>
+          Peek
+        </button>
+        <button className="queue-status-btn" onClick={() => alert(`Empty: ${queue?.isEmpty()}`)}>
+          isEmpty
+        </button>
+        {queueType !== 'Priority Queue' && (
+          <button className="queue-status-btn" onClick={() => alert(`Full: ${queue?.isFull()}`)}>
+            isFull
+          </button>
+        )}
+      </div>
 
-      <div className="stack-display">
+      {/* Queue Display */}
+      <div className="queue-horizontal-display">
         {queue?.getElements().map((item, index) => (
-          <div key={index} className="stack-element">
+          <div key={index} className="queue-element">
             {queueType === 'Priority Queue' ? (
-              <>{item?.value} (P: {item?.priority})</>
+              <>{item?.value} <span className="queue-priority">(P: {item?.priority})</span></>
             ) : item !== null ? (
               item
             ) : (
-              <span className="empty-slot">∅</span>
+              <span className="queue-empty">∅</span>
             )}
           </div>
         ))}

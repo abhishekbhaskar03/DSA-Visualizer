@@ -1,4 +1,5 @@
 .linked-list-container {
+  background-color: transparent !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,6 +69,7 @@
 }
 
 .linked-list-node-container {
+  background-color: transparent !important;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -84,7 +86,7 @@
   color: white;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .node-value {
@@ -94,12 +96,12 @@
 .arrow {
   font-size: 24px;
   margin: 0 10px;
-  color: white;
+  color: black;
 }
 
 .new-node {
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Stack Css */
@@ -111,6 +113,10 @@
   background-color: #f5f5f5;
   border-radius: 10px;
   margin: 20px 0;
+  background-color: transparent;
+  min-height: 300px;
+  border: none;
+  box-shadow: none;
 }
 
 .generate-button-container {
@@ -155,7 +161,7 @@
   color: white;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .node-value {

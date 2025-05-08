@@ -1,0 +1,246 @@
+.visualizer-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.graph-display {
+  flex: 1;
+  background: white !important; /* Remove blue background */
+  position: relative;
+}
+
+.graph-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.graph-selector {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.operations-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 33%;
+  min-width: 300px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-right: 2px solid #ddd;
+  overflow-y: auto;
+}
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.operation-group {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.operation-group h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+}
+
+.operation-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.operation-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.operation-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.operation-inputs input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.confirm-btn {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  padding: 10px 20px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.graph-display {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.common-operations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.clear-btn {
+  background: #f44336 !important;
+}
+.confirmation-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.confirm-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #9C27B0 !important;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+.input-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.delete-btn {
+  background-color: #f44336 !important;
+}
+
+tspan {
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.traversal-path-display {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-size: 1.1em;
+  color: #333;
+}
+
+marker#arrow path {
+  fill: #FF0000;
+  stroke-width: 0;
+}
+path:not([marker-end]) {
+  marker-end: none;
+}
+
+path[marker-end] {
+  marker-start: none;
+  marker-mid: none;
+  marker-end: url(#arrow);
+}
+
+marker path {
+  fill: #FF0000 !important;
+}
+
+circle {
+  transition: fill 0.3s ease;
+}
+
+/* Better contrast for highlighted nodes */
+text {
+  font-weight: bold;
+  filter: drop-shadow(0 0 2px black);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .graph-controls {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .operation-group {
+    padding: 12px;
+  }
+}

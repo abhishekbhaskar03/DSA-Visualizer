@@ -1,140 +1,170 @@
 /* QueueVisualizer.css */
-.queue-visualizer-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.visualizer-container,
+.queue-main-container {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Controls Section */
+.queue-control-group,
+.controls-row {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.queue-type-select,
+.type-selector {
+  padding: 8px 12px;
+  border: 2px solid #2ecc71; /* Changed from blue to green */
+  border-radius: 4px;
+  background: white;
+}
+
+.queue-generate-btn,
+.generate-btn {
+  padding: 8px 20px;
+  background: #2ecc71; /* Changed from blue to green */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.queue-generate-btn:disabled,
+.generate-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Input Section */
+.queue-input-group,
+.input-group {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.queue-input,
+.input-group input {
+  padding: 8px 12px;
+  border: 2px solid #2ecc71;
+  border-radius: 4px;
+  width: 120px;
+}
+
+/* Buttons */
+.queue-action-btn,
+.action-btn {
+  padding: 8px 20px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.queue-status-btn,
+.status-btn {
+  padding: 8px 20px;
+  background: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Queue Display */
+.queue-horizontal-display {
+  margin: 2rem auto;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.queue-element {
+  padding: 1rem 2rem;
+  background: #e9ecef;
+  color: #212529;
+  border-radius: 4px;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
   
-  .queue-display {
-    display: flex;
-    gap: 10px;
-    margin: 2rem 0;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 8px;
+}
+
+/* For buttons in operation groups */
+.queue-op-buttons {
+  gap: 1.5rem; /* Increased from 1rem */
+  margin: 1.5rem 0; /* Vertical spacing */
+}
+
+/* For input group buttons */
+.queue-input-group {
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* For control group buttons */
+.queue-control-group {
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* For status/action buttons */
+.queue-action-btn, 
+.queue-status-btn {
+  margin: 0 0.5rem; /* Horizontal spacing */
+}
+
+.queue-element::after {
+  content: '→';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2ecc71; /* Changed from blue to green */
+  font-size: 1.2rem;
+}
+
+.queue-element:last-child::after {
+  content: '';
+}
+
+/* Utility Classes */
+.queue-empty {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+.queue-priority {
+  font-size: 0.8em;
+  color: #7f8c8d;
+}
+
+/* Removal Animation */
+.queue-element.removing {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .queue-horizontal-display {
+    justify-content: flex-start;
     overflow-x: auto;
+    padding-bottom: 1rem;
   }
-  
-  .queue-item {
-    padding: 1rem;
-    background: #3498db;
-    color: white;
-    border-radius: 4px;
-    min-width: 80px;
-    text-align: center;
-    position: relative;
-  }
-  
-  .queue-item::after {
-    content: '→';
-    position: absolute;
-    right: -15px;
-    color: #2c3e50;
-  }
-  
-  .queue-item:last-child::after {
-    content: '';
-  }
-  
-  .controls {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .input-group {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .input-group input {
-    padding: 8px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-  }
-  
-  .operation-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .operation-buttons button {
-    background: #2ecc71;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .status-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f1c40f;
-    border-radius: 4px;
-    color: #2c3e50;
-  }
+}
 
-  /* Add to QueueVisualizer.css */
-.stack-display {
-    display: flex;
-    gap: 10px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .stack-element {
-    padding: 1rem;
-    background: #e9ecef;
-    color: #212529;
-    border-radius: 4px;
-    min-width: 60px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    opacity: 1;
-    transform: scale(1);
-  }
-  .stack-element.removing {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.3s ease;
-  }
-  
-  .empty-slot {
-    color: #adb5bd;
-    font-style: italic;
-  }
-  
-  .visualizer-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
 
-  /* QueueVisualizer.css */
-.deque-controls {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .deque-controls button {
-    background: #e74c3c;
-    color: white;
-  }
-  
-  .queue-item.deque-front {
-    border: 2px solid #2ecc71;
-  }
-  
-  .queue-item.deque-rear {
-    border: 2px solid #e74c3c;
-  }
+
