@@ -18,8 +18,8 @@ const App = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isSidebarOpen &&
-          !sidebarRef.current?.contains(event.target) &&
-          !toggleButtonRef.current?.contains(event.target)) {
+        !sidebarRef.current?.contains(event.target) &&
+        !toggleButtonRef.current?.contains(event.target)) {
         setSidebarOpen(false);
       }
     };
@@ -37,9 +37,9 @@ const App = () => {
     <div className="app">
       {/* Navbar */}
       <nav className="navbar">
-        <button 
+        <button
           ref={toggleButtonRef}
-          className="sidebar-toggle" 
+          className="sidebar-toggle"
           onClick={(e) => {
             e.stopPropagation();
             setSidebarOpen(!isSidebarOpen);
@@ -56,7 +56,7 @@ const App = () => {
       </nav>
 
       {/* Sidebar */}
-      <div 
+      <div
         ref={sidebarRef}
         className={`sidebar ${isSidebarOpen ? 'open' : ''}`}
         onClick={(e) => e.stopPropagation()}
@@ -67,7 +67,7 @@ const App = () => {
           <li onClick={() => handleSidebarLinkClick('linkedlist')}>Linked List Visualizer</li>
           <li onClick={() => handleSidebarLinkClick('stack')}>Stack Visualizer</li>
           <li onClick={() => handleSidebarLinkClick('queue')}>Queue Visualizer</li>
-          <li onClick={() => handleSidebarLinkClick('tree')}>Tree Visualizer</li> 
+          <li onClick={() => handleSidebarLinkClick('tree')}>Tree Visualizer</li>
         </ul>
       </div>
 
@@ -75,13 +75,27 @@ const App = () => {
       <main className="main-content">
         {currentView === 'home' && (
           <div className="hero-section">
-            <h2>Welcome to DSA Visualizer</h2>
-            <p>
-              An interactive learning tool that helps you understand algorithms and 
-              data structures through visualization. Explore sorting algorithms, 
-              linked lists, trees, and more with interactive animations and 
-              step-by-step explanations.
-            </p>
+            {/* Background video */}
+            <div className="video-background">
+              <video autoPlay muted loop playsInline 
+              style={{ backgroundColor: '#000' }} // Fallback color
+              className="background-video">
+                <source src="https://cdn.pixabay.com/video/2023/10/19/185629-876210579_large.mp4" type="video/mp4" />
+
+                
+              </video>
+              <div className="video-overlay"></div>
+            </div>
+            <div className="hero-content">
+              <h2>Welcome to DSA Visualizer</h2>
+              <p>
+                An interactive learning tool that helps you understand algorithms and
+                data structures through visualization. Explore sorting algorithms,
+                linked lists, trees, and more with interactive animations and
+                step-by-step explanations.
+              </p>
+            </div>
+
           </div>
         )}
 
